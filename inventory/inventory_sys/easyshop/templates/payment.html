@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/easyshop.css' %}">
+</head>
+<body style="background-color:white">
+        <div class="page-header">
+                <header style="background-color:rgb(85, 135, 182); text-size-adjust: 150px; padding: 20px 20px 20px 40px;">
+                    <h4 style="color:white";>Payment Details!!!</h4>
+                    <p style="color: white;">Please confirm your payment before making purchase</p>
+                </header>
+            </div>
+    {% block content %}
+        <div > 
+                <form method="POST" style="background-color:rgb(85, 135, 182); color: blue; margin-left: 30%; margin-right: 30%;padding-top: 5%; ">
+                     
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        
+            
+                        <button type="submit" style=" width:150px;color: blue; margin-left: 35%; margin-top: 10%;margin-bottom: 20%; align-self:center;">Confirm</button>
+                    
+
+                </form>
+        </div>
+             {% endblock %}  

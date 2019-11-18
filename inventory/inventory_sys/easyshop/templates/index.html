@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/easyshop.css' %}">
+</head>
+<body style="background-color:#39167d;">
+    <div>
+            <ul>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#Category">Category</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#cart">Add to cart</a></li>
+                 </ul>
+    </div>
+    <div class="page-header">
+        <header><h1>Welcome to EasyShop</h1>
+            <h4 style="color: 39167d; text-align: center;">Your shopping made easy!!!</h4>
+        </header>
+    </div>
+    
+
+        <container>
+                {% block content %}
+                {% for product in products %}
+        <div class="gallery" style="margin-top: 50px;width: 30%; padding: 25px;margin-left: 30px;">
+            
+            <img src="{{product.product_img.url}}" style="width: 100%;">
+                        
+                        <h4>{{product.product_name }}</h2>
+                    <div class="desc">
+                        <P>$Price:{{product.product_price}}</P>
+                        <p>Quantity:{{product.produty_quantiy}}</p>
+                        <h3 style="text-align: center;"><a href="{% url 'buy_product' product.pk %}" style="color: tomato;">Click Here to Order</a></h3>
+                    </div>
+        </div>
+    
+            {% endfor %}
+            <div class="footer" style="padding: 20px;text-align: center;margin-top: 20px;">
+        
+                    <p>Posted by: EasyShop</p>
+                    <p>Contact information: 312 hebert macurly way sabo yaba lagos state<br>
+                         <a href="gbemikp@gmail.com">"gbemikp@gmail.com</a>.<br>
+                         Phone number:08135543781
+                        </p>
+                  
+                
+             </div>
+             {% endblock %}  
+                </container>
+       
+            
+</body>
+</html>

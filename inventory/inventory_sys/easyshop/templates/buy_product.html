@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/easyshop.css' %}">
+</head>
+<body style="background-color:whitesmoke;">
+        <div class="page-header">
+                <header style="background-color:#39167d; text-size-adjust: 150px; padding: 20px 20px 20px 40px;"><h1 style="color:whitesmoke";> Order Details</h1>
+                    <h4 style="color:whitesmoke";>Thank you for making order!!!</h4>
+                </header>
+            </div>
+    {% block content %}
+    <div class="product">
+        <!-- {% if product.product_id %} -->
+        <div style="padding-left:40%; padding-right:40%;padding-top: 80px; color: #39167d; text-size-adjust: 50px;"> 
+            <img src="{{product.product_img.url}}">
+            
+            <h5>Your product ID :{{product.product_id}}</h5>
+            <p style="color: #39167d; text-align: center;">Produt Name:{{product.product_name}}</p>
+            <p style="color: #39167d; text-align: center;">Product Price:{{product.product_price}}</p>
+            <h3 style="text-align: center;"><a href="{% url 'make_payment'  %}" style="color: tomato;">Click Here for payment</a></h3>
+            <!-- <input type="button"  value="Make Payment!" width="80px" > -->
+        </div>
+        <!-- {% endif %} -->
+
+    </div>
+    {% endblock %}
+
+</body>
